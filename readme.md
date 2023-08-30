@@ -11,12 +11,12 @@ Need to setup:
   - Or get the GPU version for pytorch, such as `https://download.pytorch.org/whl/lts/1.8/cu111`, depending on the CUDA version.
 
 To run the package
-  - Use `roslaunch rope_storage demo.launch`
+  - Use `roslaunch yumi_fk_calibration demo.launch`
   - Run python scripts 
 
 
 To run the simulator
-  - Use `roslaunch rope_storage yumi_gazebo_moveit.launch`
+  - Use `roslaunch yumi_fk_calibration yumi_gazebo_moveit.launch`
   - Then use `roslaunch yumi_fk_calibration rviz_sim.launch`
 
 - `Failed to load library /opt/ros/noetic/lib/libmoveit_motion_planning_rviz_plugin.so`
