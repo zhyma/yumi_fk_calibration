@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch> 
+  <!--front realsense and ar tag part-->
+  <include file="$(find rope_storage)/launch/front_cam.launch">
+  </include>
+
+  <!--side realsense-->
+  <!--<include file="$(find robot_wrapping)/launch/side_cam.launch">
+  </include>-->
+
+  <include file="$(find rope_storage)/launch/rws_online.launch">
+  </include>
+
+  <include file="$(find rope_storage)/launch/ariadne.launch">
+  </include>
+
+</launch>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch> 
+  <!--run gazebo simulator for trajectory validation-->
+  <!--Not working for some reason-->
+  <include file="$(find rope_storage)/launch/yumi_gazebo_moveit.launch">
+  </include>
+
+  <include file="$(find rope_storage)/launch/rviz_sim.launch">
+  </include>
+
+</launch>

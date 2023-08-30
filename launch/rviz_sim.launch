@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+ <launch>
+
+
+  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+  <include file="$(find yumi_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+  </include>
+
+  <!--The planning and execution components of MoveIt! configured to 
+      publish the current configuration of the robot (simulated or real) 
+      and the current state of the world as seen by the planner-->
+  <include file="$(find yumi_moveit_config)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+  </include>
+
+  <!--The visualization component of MoveIt!-->
+  <node name="$(anon rviz)" pkg="rviz" type="rviz" respawn="false"
+  args="-d $(find rope_storage)/launch/moveit.rviz" output="screen">
+    <rosparam command="load" file="$(find yumi_moveit_config)/config/kinematics.yaml"/>
+  </node>
+
+
+  <!-- We do not have a robot connected, so publish fake joint states -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/> 
+    <rosparam param="/source_list">[/yumi/joint_states]</rosparam>
+  </node>
+</launch>
